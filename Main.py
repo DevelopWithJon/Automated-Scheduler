@@ -25,7 +25,6 @@ def assign(sched):
     else:
         row, col = find
     
-    em = reset_list()
     random.shuffle(em)
     
     # Chooses two items at a time through the employee list. This is guess assignments for both products at once
