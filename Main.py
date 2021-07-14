@@ -1,17 +1,16 @@
 import random
 from collections import Counter
 
+# Dummy Schedule
 sched = [[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
          [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
          [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
          [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
          [[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]]]
 
+# Employee List
 em = ["A","B","C","D", "E", "F", "J"]
 
-def reset_list():
-    em = ["A","B","C","D", "E", "F", "J"]
-    return em
 
 def print_schedule(sched):
     for i in range(len(sched)):
@@ -28,6 +27,8 @@ def assign(sched):
     
     em = reset_list()
     random.shuffle(em)
+    
+    # Chooses two items at a time through the employee list. This is guess assignments for both products at once
     for choice1, choice2 in zip(em[0::2], em[1::2]):
         if condition(sched, [choice1, choice2], row, col):
             if col == 4:
@@ -63,17 +64,23 @@ def condition(sched, choice, day, shift):
         print("Err3")
         return False
     
-    # Can only work 2 shifts a day
+    
+
+    # Makes a list of all assignments
     new_list = []
     for i in range(len(sched[day])):
         for j in sched[day][i]:
             new_list.append(j)
             
     choice1 = choice[0] 
-    choice2 = choice[1]       
+    choice2 = choice[1]
+         
+    
     if (Counter(new_list).get(choice1) == None) or (Counter(new_list).get(choice2) == None):
         return True
-    
+
+    # Can only work 2 shifts a day
+    # Check to see if guess has already appeared twice that day
     elif (Counter(new_list).get(choice1) > 2) or (Counter(new_list).get(choice2) > 2):
         print("Err4")
         return False
