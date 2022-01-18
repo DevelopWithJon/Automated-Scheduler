@@ -18,5 +18,4 @@ This tool is used to automate a simple schedule (Link to example schedule https:
 
 ## Method 
 
-To do this I used a recursive function algorithm that loops through a list of possible assigments. First it identifies an empty spot in the schedule, then choose an assignment, validates the choice through all the conditions. Because of the recursive design, the program can make decisions and correct mistake at each assignment as well as look back for a better choice.
-
+To do this I used a recursive function  that loops through a list of possible assigments. First it identifies an empty spot in the schedule, then choose an assignment, validates the choice through all the conditions. Because of the recursive design, the program can make decisions and correct mistake at each assignment as well as look back for a better choice.
